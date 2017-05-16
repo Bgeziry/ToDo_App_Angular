@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>DoMe</title>
-    <meta name="description" content="">
+    <!-- <script src="index.js"></script>
+    <meta name="description" content=""> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
 
@@ -18,9 +19,31 @@
     <!-- endbuild -->
   </head>
 
+  <!-- <body ng-app="Todo" ng-contoller="MainController"> -->
+  <body ng-app="Todo">
+    <div class="page-container" ng-controller="MainController">
+      <p>{{ title }}</p>
+      <ul>
+        <li ng-repeat="todo in todos">{{todo.title}}
+        <button ng-click="deleteTodo(todo)">Delete</button>
+        <button ng-click="editTodo(todo)">Edit</button></li>
+      </ul>
+      <div>
+        <ul class="add-todo">
+          <li>
+            <input type="text" class="txt" placeholder="New Todo"
+                   ng-model="newTodo" ng-keyup="add($event)" />
+          </li>
+        </ul>
 
-  <body ng-app="app">
-    <app>Loading...</app>
+      </div>
+    </div>
+
+    <!-- <form ng-model="newTodo" ng-keyup="add($event)">
+      <input type="text" ng-model="title"></input>
+      <input type="text" ng-model="description"></input>
+    </form> -->
+
   </body>
 
   <!-- build:js({.tmp,src}) scripts/vendor.js -->
