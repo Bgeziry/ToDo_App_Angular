@@ -24,7 +24,7 @@
     <div class="page-container" ng-controller="MainController">
       <p>{{ title }}</p>
       <ul>
-        <li ng-repeat="todo in todos">{{todo.title}}
+        <li ng-repeat="todo in todo_item">{{todo.title}}
         <button ng-click="deleteTodo(todo)">Delete</button>
         <button ng-click="editTodo(todo)">Edit</button></li>
       </ul>
@@ -32,7 +32,9 @@
         <ul class="add-todo">
           <li>
             <input type="text" class="txt" placeholder="New Todo"
-                   ng-model="newTodo" ng-keyup="add($event)" />
+                   ng-model="todo_item.title" ng-keyup="addToDo($event)" />
+            <input type="text" class="txt" placeholder="New Todo"
+                   ng-model="todo_item.discription" ng-keyup="addToDo($event)" />
           </li>
         </ul>
 
